@@ -3,6 +3,8 @@ import { useState } from 'react';
 import Player from './components/Player.jsx';
 import GameBoard from './components/GameBoard.jsx';
 import Log from './components/Log.jsx';
+import { WINNING_COMBINATIONS } from './winning-combinations.js';
+
 
 function deriveActivePlayer(gameTurns){
   let currentPlayer = 'X';
@@ -16,9 +18,11 @@ function deriveActivePlayer(gameTurns){
 
 function App() {
   const [gameTurns, setGameTurns] = useState([]);
+  //const [hasWinner, setHasWinner] = useState(false);
   //const [activePlayer, setActivePlayer] = useState('X');
 
   const activePlayer = deriveActivePlayer(gameTurns);
+  
 
   function handleSelectSquare(rowIndex, colIndex) {
     //setActivePlayer((curActivePlayer) => curActivePlayer === 'X' ? 'O' : 'X');
