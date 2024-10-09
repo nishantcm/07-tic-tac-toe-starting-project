@@ -30,7 +30,7 @@ function App() {
 
   const activePlayer = deriveActivePlayer(gameTurns);
 
-  let gameBoard = initialGameBoard;
+  let gameBoard = [...initialGameBoard.map(array => [...array])];
 
   for (const turn of gameTurns) {
       const { square, player } = turn;
@@ -53,6 +53,8 @@ function App() {
     }
   }
 
+  
+
   function handleSelectSquare(rowIndex, colIndex) {
     //setActivePlayer((curActivePlayer) => curActivePlayer === 'X' ? 'O' : 'X');
     setGameTurns((prevTurns) => {
@@ -65,6 +67,10 @@ function App() {
 
       return updatedTurns;
     });
+  }
+
+  function handleRestart() {
+    setGameTurns([]);
   }
 
   return (
